@@ -1,9 +1,6 @@
 from discord.ext import commands
 import discord
 
-BOT_TOKEN = 'MTIxMzA0MDIyMjEyOTA5NDY3Ng.G0cb3O.24gVH5fdwrlJsKvFWLjR1KEZ_ZikmIZ5FFM3Rs'
-CHANNEL_ID = 1213044260295807028
-
 bot = commands.Bot(command_prefix='!', intents=discord.Intents.all())
 
 @bot.event
@@ -20,5 +17,21 @@ async def hello(ctx):
 async def add(ctx, x, y):
     result = int(x) + int(y)
     await ctx.send(f"{x} + {y} = {result}")
+
+@bot.command()
+async def subtract(ctx, x, y):
+    result = int(x) - int(y)
+    await ctx.send(f"{x} - {y} = {result}")
+
+@bot.command()
+async def multiply(ctx, x, y):
+    result = int(x) * int(y)
+    await ctx.send(f"{x} * {y} = {result}")
+
+
+@bot.command()
+async def divide(ctx, x, y):
+    result = int(x) / int(y)
+    await ctx.send(f"{x} / {y} = {result}")
 
 bot.run(BOT_TOKEN)
